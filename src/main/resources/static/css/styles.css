@@ -1,0 +1,8 @@
+.error {color: red; }
+
+<script>
+function cssChange() {
+    var x = document.getElementById("error");
+
+}
+</script>

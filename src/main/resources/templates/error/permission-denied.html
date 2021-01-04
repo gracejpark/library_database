@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Permission Denied</title>
+<link rel="stylesheet" type="text/css" href="..static/css/styles.css"
+	th:href="@{/css/styles.css}" />
+</head>
+<body>
+	<h1>Permission denied</h1>
+	
+	<h2>You do not have access to this area</h2>
+	
+	<form action="#" th:action="@{/logout}" method="post">
+			<input type="submit" value="Logout">	
+		</form><br>
+	<a href="/">Back to index</a>
+</body>
+</html>

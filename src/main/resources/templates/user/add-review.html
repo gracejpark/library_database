@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="|Add a review for ${title}|">Add a review</title>
+<link rel="stylesheet" type="text/css" href="..static/css/styles.css"
+	th:href="@{/css/styles.css}" />
+<script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
+</head>
+<body>
+	<h1>Add your review!</h1><br>
+	<div id="error" class="error"></div>
+	
+	<form name="form" action="#" th:action="@{/user/add-review/} + ${id}" method="post" onsubmit="return verifyReview()">
+		<textarea name="textArea" rows="4" cols="50"></textarea> 		
+		<br><br>
+  		<input type="submit" value="Add Review!">
+	</form><br>
+	<a href="/">Back to index</a>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>Welcome to Our library!</title>
+<link rel="stylesheet" type="text/css" href="..static/css/styles.css"
+	th:href="@{/css/styles.css}" />
+</head>
+<body>
+
+	<h1>Welcome to the Library Database</h1>
+	<div th:if="${message}" class="error">
+		<h1 th:text="${message}">Message</h1>
+	</div>
+	<table border="1">
+		<tr>
+			<th>Title</th>
+			<th>Author</th>
+			<th>Reviews</th>
+		</tr>
+		<tr th:each="book : ${bookList}">
+			<td th:text=${book.title}>Title</td>
+			<td th:text=${book.author}>Author</td>
+			<td><a href="#" th:href="@{/viewBook/} + ${book.id}">View</a></td>
+		</tr>
+	</table>
+	<br>
+	<div sec:authorize="!isAuthenticated()">
+		Log In <a th:href="@{/login}">here</a>.
+	</div>
+	
+	<div sec:authorize="hasRole('ROLE_MANAGER')">
+		<a href="#" th:href="@{/admin/new-book}">Add an Book</a>
+	</div><br>
+	
+	<div sec:authorize="isAuthenticated()">
+		<form action="#" th:action="@{/logout}" method="post">
+		<label for="male">Hi <span sec:authentication="principal.username"/> Welcome Back! </label>
+		<input type="submit" value="Logout">	
+		</form>
+	</div>
+</body>
+</html>
