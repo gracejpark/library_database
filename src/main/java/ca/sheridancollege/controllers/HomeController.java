@@ -64,7 +64,7 @@ public class HomeController {
 	 */
 	@RequestMapping("/login")
 	public String login() {
-		return "/login";
+		return "login";
 	}
 	
 	/**
@@ -73,7 +73,7 @@ public class HomeController {
 	 */
 	@GetMapping("/permission-denied")
 	public String permissionDenied() {
-		return "/error/permission-denied";
+		return "error/permission-denied";
 	}
 
 	/**
@@ -111,7 +111,7 @@ public class HomeController {
 	 */
 	@GetMapping("/admin/new-book")
 	public String newBook() {
-		return "/admin/add-book";
+		return "admin/add-book";
 	}
 	
 	/**
@@ -136,7 +136,7 @@ public class HomeController {
 	public String newReview(@PathVariable Long id, Model model) {
 		Book book = database.getBook(id);
 		model.addAttribute("title", book.getTitle());
-		return "/user/add-review";
+		return "user/add-review";
 	}
 	
 	/**
