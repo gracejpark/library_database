@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:fragment="html-head">
+<meta charset="UTF-8">
+<title>Thymeleaf Fragments</title>
+<link href="../../static/css/styles.css" th:href="@{/css/styles.css}"
+	rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+	href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap"
+	rel="stylesheet">
+<script src="https://kit.fontawesome.com/036f0b4398.js"
+	crossorigin="anonymous"></script>
+<script src="../../static/js/main.js" th:src="@{/js/main.js}" defer></script>
+</head>
+
+<body>
+	<div th:fragment="page-header">
+			<nav class="navbar">
+			<div class="navbar_logo">
+				<span class="page-header"> <i class="fas fa-book-reader"></i>
+					<a href="/">Library</a>
+				</span>
+			</div>
+			<ul class="navbar_menu">
+				<li><a href="#" th:href="@{/books}">Books & More</a></li>
+				<li><a href="#">Library Services</a></li>
+				<li><a href="#">Contact Us</a></li>
+			</ul>
+			<ul class="navbar_icons">
+				<li><a href="#" th:href="@{/login}"><i class="fas fa-sign-in-alt"></i></a></li>
+				<li><a href="#" th:href="@{/register}"><i class="fas fa-user-circle"></i></a></li>
+			</ul>
+			
+			<a href="#" class="navbar_toggleBtn"><i class="fas fa-bars"></i></a>
+		</nav>
+	</div>
+
+</body>
+</html>

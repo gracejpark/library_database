@@ -58,6 +58,13 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping("/books")
+	public String books(Model model) {
+		List<Book> books = database.getBook();
+		model.addAttribute("bookList", books);
+		return "books";
+	}
+	
 	/**
 	 * Method to login.
 	 * @return "/login"

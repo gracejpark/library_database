@@ -1,4 +1,164 @@
-.error {color: red; }
+:root { 
+	--navbar-text-color: #263343;
+	--navbar-font-size: 20px;
+	--navbar-bgcolor:#44CCCE;
+	--base-space: 8px 12px; 
+	--item-space: 20px;
+	--logo-color: #f0f4f5;
+	
+}
+
+body {
+	margin: 0;
+	font-family: 'Source Sans Pro';
+	background-color: #f0f4f5;
+}
+
+a {
+	text-decoration: none;
+	color: var(--navbar-text-color);
+	size: var(--navbar-font-size);
+}
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: var(--navbar-bgcolor);
+	padding: 8px 12px;
+}
+
+.navbar_logo {
+	font-size: 24px;
+	color: #737373;
+}
+
+.navbar_icons li i, .navbar_logo i {
+	color: var(--logo-color);
+}
+
+.navbar_icons, .navbar_menu {
+	display: flex;
+	list-style: none;
+	padding-left: 0;
+}
+
+.navbar_menu li:hover {
+	background-color: var(--logo-color);
+	border-radius: 4px;
+}
+
+.navbar_icons li, .navbar_menu li {
+	padding: var(--base-space);
+}
+
+.navbar_toggleBtn {
+	display: none;
+	position: absolute;
+	right: 32px;
+	font-size: 24px;
+	color: var(--logo-color);
+	
+}
+.error {
+	color: red;
+}
+.overview, 
+.page-section {
+	background-color: #f0f4f5;
+	color: #263343;
+	 <!--text-align: center; 뉴스내용 -->
+
+}
+.overview h2{
+	width:100%;
+	margin-top:2em;
+	margin-bottom:0.8em;
+	text-align: left;
+	padding-left:  var(--item-space);
+}
+
+.news{
+	display: flex;
+  	flex-wrap: no-wrap; 
+  	flex-direction: row;
+  	
+  	justify-content: space-between;
+  margin:0;
+  width:100%;
+  padding-left:  var(--item-space);
+}
+
+.page-section h2{
+	display:flex;
+	justify-content: space-between;
+	margin-top:2em;
+	margin-bottom:0.8em;
+	
+	 padding-left:  var(--item-space);
+}
+
+.main{
+	display: flex;
+  	flex-wrap: no-wrap; 
+  	flex-direction: row;
+  	justify-content: flex-start;
+  margin:0;
+  width:100%;
+  padding-left:  var(--item-space);
+}
+
+.news li, 
+.main li {
+	list-style: none;
+	background-color: #ffffff;
+}
+
+.main img {
+	width: 50%;
+}
+
+.side {
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+.page-footer {
+	text-align:right;
+	background-color: var(--navbar-bgcolor);
+	color: var(--navbar-text-color);
+	
+}
+
+@media screen and (max-width: 770px) {
+	.navbar {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 8px 24px;
+	}
+	.navbar_menu {
+		display: none; 
+		flex-direction : column;
+		align-items: center;
+		width: 100%;
+		flex-direction: column;
+	}
+	.navbar_menu li {
+		width: 100%;
+		text-align: center;
+	}
+	.navbar_icons {
+		display: none; justify-content : center;
+		width: 100%;
+		justify-content: center;
+	}
+	.navbar_toggleBtn {
+		display: block;
+	}
+	.navbar_menu.active, .navbar_icons.active {
+		display: flex;
+	}
+}
+}
 
 <script>
 function cssChange() {

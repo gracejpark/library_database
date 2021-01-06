@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org"
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head>
-<meta charset="UTF-8">
-<title>Welcome to Our library!</title>
-<link rel="stylesheet" type="text/css" href="..static/css/styles.css"
-	th:href="@{/css/styles.css}" />
-</head>
+<head th:replace="fragments/header.html :: html-head"></head>
 <body>
+	<header th:insert="fragments/header.html :: page-header"></header>
+	<section class="overview">
+		<h2>News</h2>
+		<div>
+			<ul class="news">
+				<li><img src="../static/img/library1.jpg"
+					th:src="@{/img/library1.jpg}" alt="lib1" />
+				<li><h3>Province-wide shutdown and TPL</h3>
+					<br> TPL branches are open for contactless holds pick-up and
+					drop-off of materials only. All other services are not available at
+					this time. Our services have been modified to align with the
+					province-wide shutdown and expanded Grey-Lockdown restrictions in
+					Toronto. Please check back here for updates and more information on
+					available services.</li>
+			</ul>
+		</div>
+	</section>
+	<section class="page-section">
+		<h2>Most Searched Books
+		<span class=""><a href="#" th:href="@{/books}">
+		 <i class="fas fa-angle-right">View
+				All</i></a></span></h2>
+	
+		<ul class="main">
+			<li><a href="#" th:href="@{/books}"> <img
+					src="../static/img/book1.jpg" th:src="@{/img/book1.jpg}"
+					alt="book1" /></a>
+				<h5>The 7 Habits of Highly Effective People</h5></li>
+			<li><a href="#" th:href="@{/books}"> <img
+					src="../static/img/book1.jpg" th:src="@{/img/book1.jpg}"
+					alt="book1" /></a>
+				<h5>The 7 Habits of Highly Effective People</h5></li>
+		</ul>
+		
+	</section>
 
-	<h1>Welcome to the Library Database</h1>
-	<div th:if="${message}" class="error">
-		<h1 th:text="${message}">Message</h1>
-	</div>
-	<table border="1">
-		<tr>
-			<th>Title</th>
-			<th>Author</th>
-			<th>Reviews</th>
-		</tr>
-		<tr th:each="book : ${bookList}">
-			<td th:text=${book.title}>Title</td>
-			<td th:text=${book.author}>Author</td>
-			<td><a href="#" th:href="@{/viewBook/} + ${book.id}">View</a></td>
-		</tr>
-	</table>
-	<br>
-	<div sec:authorize="!isAuthenticated()">
-		Log In <a th:href="@{/login}">here</a>.
-	</div>
-	
-	<div sec:authorize="hasRole('ROLE_MANAGER')">
-		<a href="#" th:href="@{/admin/new-book}">Add an Book</a>
-	</div><br>
-	
-	<div sec:authorize="isAuthenticated()">
-		<form action="#" th:action="@{/logout}" method="post">
-		<label for="male">Hi <span sec:authentication="principal.username"/> Welcome Back! </label>
-		<input type="submit" value="Logout">	
-		</form>
-	</div>
+	<div th:replace="fragments/footer.html :: page-footer"></div>
 </body>
 </html>
