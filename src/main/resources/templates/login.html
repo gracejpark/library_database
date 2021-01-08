@@ -1,38 +1,44 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta charset="UTF-8">
 <title>Log In</title>
-<link rel="stylesheet" type="text/css" href="..static/css/styles.css"
-	th:href="@{/css/styles.css}" />
+<link rel="stylesheet" type="text/css" href="..static/css/login.css"
+	th:href="@{/css/login.css}" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/036f0b4398.js" crossorigin="anonymous"></script>
 </head>
 <body>
-	<h1>Enter your information to log in</h1>
-	<div th:if="${param.error}" class="error">
-		<p>Invaild username or password</p>
+	<section class="login-form">
+	<h1>Welcome to you <i class="fas fa-door-open"></i></h1>
+	<div th:if="${param.error}" class="alert alert-error">
+		<p> ⚠️ Invaild username or password</p>
 	</div>
 
-	<div th:if="${param.logout}" class="error">
+	<div th:if="${param.logout}" class="alert alert-success ">
 		<p>You are now logged out.</p>
 	</div>
 	
 	<form action="#" th:action="@{/login}" method="post">
-	<table>
-			<tr>
-				<td>Username:</td>
-				<td><input type="text" name="username" autofocus="autofocus"/></td>
-			</tr>
-			<tr>
-				<td>Password:</td>
-				<td><input type="text" name="password" /></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" value="Log In"></td>
-			</tr>
-		</table>	
+	<div class="int-area">
+		<input type="text" name="username" id="id" autocomplete="off" required/>
+		<label for="id">User Name</label>
+	</div>
+	<div class="int-area">
+		<input type="text" name="password" id="pw" autocomplete="off" required/>
+		<label for="pw">Password</label>
+	</div>
+	<div class="btn-area">
+		<button type="submit" value="Log In">Log In</button>
+			
+		</div>	
 	</form>
-	<p>Not registered?<a href="/" th:href="@{/register}">Register here</a></p>
+	<div class="caption">
+	<a href="/" th:href="@{/register}">Not registered? Register here</a><br>
 	<a href="/">Back to home</a>
-
+	</div>
+	</section>
 </body>
 </html>

@@ -5,20 +5,26 @@
 <body>
 	<header th:insert="fragments/header.html :: page-header"></header>
 	<section class="overview">
-		<h2>News</h2>
-		<div>
-			<ul class="news">
-				<li><img src="../static/img/library1.jpg"
-					th:src="@{/img/library1.jpg}" alt="lib1" />
-				<li><h3>Province-wide shutdown and TPL</h3>
-					<br> TPL branches are open for contactless holds pick-up and
-					drop-off of materials only. All other services are not available at
-					this time. Our services have been modified to align with the
-					province-wide shutdown and expanded Grey-Lockdown restrictions in
-					Toronto. Please check back here for updates and more information on
-					available services.</li>
+	<div sec:authorize="isAuthenticated()">
+		<form action="#" th:action="@{/logout}" method="post">
+		<label for="male">Hi <span sec:authentication="principal.username"/> Welcome Back! </label>
+		<input type="submit" value="Logout">	
+		</form>
+	</div>
+	<h2>Library Facilities</h2>
+		<div class="slide_wrapper">
+			<ul class="slides">
+				<li><img src="../static/img/library1.jpg" th:src="@{/img/library1.jpg}" alt="lib1" /></li>
+				<li><img src="../static/img/library2.jpg" th:src="@{/img/library4.jpg}" alt="lib2" /></li>
+				<li><img src="../static/img/library3.jpg" th:src="@{/img/library3.jpg}" alt="lib3" /></li>
+				<li><img src="../static/img/library4.jpg" th:src="@{/img/library2.jpg}" alt="lib3" /></li>
+				<li><img src="../static/img/library5.jpg" th:src="@{/img/library5.jpg}" alt="lib3" /></li>
 			</ul>
 		</div>
+			<p class="controls">
+			<span class="prev">&#10094;</span>
+			<span class="next">&#10095;</span></p>
+					
 	</section>
 	<section class="page-section">
 		<h2>Most Searched Books

@@ -4,40 +4,41 @@
 <head>
 <meta charset="UTF-8">
 <title>Registration Page</title>
-<link rel="stylesheet" type="text/css" href="..static/css/styles.css"
-	th:href="@{/css/styles.css}" />
+<link rel="stylesheet" type="text/css" href="..static/css/register.css"
+	th:href="@{/css/register.css}" />
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/036f0b4398.js" crossorigin="anonymous"></script>
 <script src="../static/js/script.js" th:src="@{/js/script.js}"></script>
 </head>
 <body>
-	<h1>Register Here</h1>
-	<div id="error" class="error"></div>
-	
-	<div th:if="${message}" class="error">
-		<p th:text="${message}">Message</p>
-	</div>
+	<section class="register-form">
+		<h1>Register Here</h1>
+		<div id="error" class="alert alert-error">
+		<p th:if="${message}" class="alert alert-success">
+			<span th:text="${message}">Message</span>
+		</p>
+		</div>
 	<form name="form" action="#" th:action="@{/addUser}"
 		method="post" onsubmit="return verify()">
-		<table>
-			<tr>
-				<td>Username:</td>
-				<td><input type="text" name="userName" /></td>
-			</tr>
-			<tr>
-				<td>Password:</td>
-				<td><input type="text" name="password" /></td>
-			</tr>
-			<tr>
-				<td><input type="hidden" name="authority"
-					th:value="${authority}" th:id="${authority}"></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" value="Register Now"></td>
-			</tr>
-		</table>
+		<div class="int-area">
+			<label for="id">User Name</label>
+			<input type="text" name="userName" id="id" autocomplete="off" />
+		</div>
+		<div class="int-area">
+			<label for="pw">Password</label>
+			<input type="text" name="password" id="pw" autocomplete="off" />
+		</div>
+			<input type="hidden" name="authority"
+			th:value="${authority}" th:id="${authority}">
+		<div class="btn-area">
+			<button type="submit" value="Register Now">Register Now</button>
+		</div>
 	</form>
-
-	<br><br>
+	<div class="caption">
 	<a href="/">Back to Index</a>
+	</div>
+	</section>
 </body>
 </html>
 

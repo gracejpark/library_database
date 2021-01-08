@@ -20,6 +20,14 @@ a {
 	size: var(--navbar-font-size);
 }
 
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+}
+
+/********* navigation bar *******************/
 .navbar {
 	display: flex;
 	justify-content: space-between;
@@ -60,68 +68,101 @@ a {
 	color: var(--logo-color);
 	
 }
-.error {
-	color: red;
-}
+
+/********* index. html *******************/
 .overview, 
 .page-section {
 	background-color: #f0f4f5;
 	color: #263343;
-	 <!--text-align: center; 뉴스내용 -->
-
-}
-.overview h2{
-	width:100%;
-	margin-top:2em;
-	margin-bottom:0.8em;
-	text-align: left;
-	padding-left:  var(--item-space);
 }
 
-.news{
-	display: flex;
-  	flex-wrap: no-wrap; 
-  	flex-direction: row;
-  	
-  	justify-content: space-between;
-  margin:0;
-  width:100%;
-  padding-left:  var(--item-space);
+.slide_wrapper{
+	position: relative;
+	width: 1400px;
+	height: 300px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.slides{
+	position:absolute;
+	left:0; top:0;
+	transition: left 0.5s ease-out;
+	padding:0;
+	margin:0;
 }
 
+.slides li:not(:last-child){
+	float:left;
+	margin-right:30px;
+	list-style: none;
+}
+
+.controls{
+	text-align: center;
+	margin-top: 50px;
+}
+
+.prev{
+	cursor: pointer;
+	position: absolute;
+	left: 4%;
+	top: 93%;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	color: #fff;
+	padding: 13px;
+	border-radius: 0 3px 3px 0;
+  	user-select: none;
+}
+
+.next{
+	cursor: pointer;
+	position: absolute;
+	right: 4%;
+	top: 93%;
+	font-weight: bold;
+	font-size: 18px;
+	transition: 0.6s ease;
+	color: #fff;
+	padding:13px;
+	border-radius: 0 3px 3px 0;
+  	user-select: none;
+}
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+.overview h2,
 .page-section h2{
 	display:flex;
 	justify-content: space-between;
 	margin-top:2em;
 	margin-bottom:0.8em;
-	
-	 padding-left:  var(--item-space);
+    padding-left:  var(--item-space);
 }
+
 
 .main{
 	display: flex;
   	flex-wrap: no-wrap; 
   	flex-direction: row;
   	justify-content: flex-start;
-  margin:0;
-  width:100%;
-  padding-left:  var(--item-space);
+    margin:0;
+    width:100%;
+    padding-left:  var(--item-space);
 }
 
-.news li, 
+
 .main li {
 	list-style: none;
-	background-color: #ffffff;
+	background-color: #fff;
 }
 
 .main img {
 	width: 50%;
 }
 
-.side {
-  background-color: #f1f1f1;
-  padding: 20px;
-}
+/********* footer. html *******************/
 .page-footer {
 	text-align:right;
 	background-color: var(--navbar-bgcolor);
@@ -130,6 +171,7 @@ a {
 }
 
 @media screen and (max-width: 770px) {
+
 	.navbar {
 		flex-direction: column;
 		align-items: flex-start;
@@ -160,9 +202,3 @@ a {
 }
 }
 
-<script>
-function cssChange() {
-    var x = document.getElementById("error");
-
-}
-</script>

@@ -8,12 +8,12 @@ function verify() {
 		username == null || username == "") {
 		
 		document.getElementById("error").innerHTML 
-			= "User name and password are required";
+			= "⚠️ User name and password are required";
 		return false;
+	}else{
+			return true;
 	}
-	return true;
 }
-
 
 function verifyBook(){
 	
@@ -30,6 +30,7 @@ function verifyBook(){
 	}
 	return true;
 }
+
 
 function verifyReview(){
 	

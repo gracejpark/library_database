@@ -193,7 +193,7 @@ public class HomeController {
 		}
 		List<Book> books = database.getBook();
 		model.addAttribute("bookList", books);
-		return "index";
+		return "register";
 	}
 	
 }
