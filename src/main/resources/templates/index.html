@@ -4,10 +4,10 @@
 <head th:replace="fragments/header.html :: html-head"></head>
 <body>
 	<header th:insert="fragments/header.html :: page-header"></header>
-	<section class="overview">
+	<section class="main_visual">
 	<div sec:authorize="isAuthenticated()">
 		<form action="#" th:action="@{/logout}" method="post">
-		<label for="male">Hi <span sec:authentication="principal.username"/> Welcome Back! </label>
+		<label for="male">Hi <span sec:authentication="principal.username"> Welcome Back! </span></label>
 		<input type="submit" value="Logout">	
 		</form>
 	</div>
@@ -17,8 +17,8 @@
 				<li><img src="../static/img/library1.jpg" th:src="@{/img/library1.jpg}" alt="lib1" /></li>
 				<li><img src="../static/img/library2.jpg" th:src="@{/img/library4.jpg}" alt="lib2" /></li>
 				<li><img src="../static/img/library3.jpg" th:src="@{/img/library3.jpg}" alt="lib3" /></li>
-				<li><img src="../static/img/library4.jpg" th:src="@{/img/library2.jpg}" alt="lib3" /></li>
-				<li><img src="../static/img/library5.jpg" th:src="@{/img/library5.jpg}" alt="lib3" /></li>
+				<li><img src="../static/img/library4.jpg" th:src="@{/img/library2.jpg}" alt="lib4" /></li>
+				<li><img src="../static/img/library5.jpg" th:src="@{/img/library5.jpg}" alt="lib5" /></li>
 			</ul>
 		</div>
 			<p class="controls">
@@ -26,25 +26,78 @@
 			<span class="next">&#10095;</span></p>
 					
 	</section>
-	<section class="page-section">
-		<h2>Most Searched Books
-		<span class=""><a href="#" th:href="@{/books}">
-		 <i class="fas fa-angle-right">View
-				All</i></a></span></h2>
-	
-		<ul class="main">
-			<li><a href="#" th:href="@{/books}"> <img
-					src="../static/img/book1.jpg" th:src="@{/img/book1.jpg}"
-					alt="book1" /></a>
-				<h5>The 7 Habits of Highly Effective People</h5></li>
-			<li><a href="#" th:href="@{/books}"> <img
-					src="../static/img/book1.jpg" th:src="@{/img/book1.jpg}"
-					alt="book1" /></a>
-				<h5>The 7 Habits of Highly Effective People</h5></li>
+<section class="main_content">
+	<div class="mbox_01">
+		<h2>Most Searched Books</h2>
+		<ul class="main_books">
+			<li><a href="#" th:href="@{/books}">
+			<img src="../static/img/book1.jpg" th:src="@{/img/book1.jpg}" alt="book1" /></a>
+			<h5>The 7 Habits of Highly Effective People</h5></li>
+			<li><a href="#" th:href="@{/books}">
+			<img src="../static/img/book2.jpg" th:src="@{/img/book2.jpg}" alt="book1" /></a>
+			<h5>The Prince</h5></li>
+			<li><span class=""><a href="#" th:href="@{/books}">
+			<i class="fas fa-angle-right">View	All</i></a></span></li>
 		</ul>
-		
-	</section>
+	</div>
+	<div class="mbox_02">
+		<h2>Calendar</h2>
+		<div class="calendarBox">
+		<ul>
+  <!--   <li class="prev">&#10094;</li>
+    <li class="next">&#10095;</li> -->
+    <li>
+      January<br>
+      <span style="font-size:18px">2021</span>
+    </li>
+  </ul>
+</div>
 
+<ul class="weekdays">
+  <li>Mo</li>
+  <li>Tu</li>
+  <li>We</li>
+  <li>Th</li>
+  <li>Fr</li>
+  <li>Sa</li>
+  <li>Su</li>
+</ul>
+
+<ul class="days">  
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+  <li>4</li>
+  <li>5</li>
+  <li>6</li>
+  <li>7</li>
+  <li>8</li>
+  <li>9</li>
+  <li><span class="active">10</span></li>
+  <li>11</li>
+  <li>12</li>
+  <li>13</li>
+  <li>14</li>
+  <li>15</li>
+  <li>16</li>
+  <li>17</li>
+  <li>18</li>
+  <li>19</li>
+  <li>20</li>
+  <li>21</li>
+  <li>22</li>
+  <li>23</li>
+  <li>24</li>
+  <li>25</li>
+  <li>26</li>
+  <li>27</li>
+  <li>28</li>
+  <li>29</li>
+  <li>30</li>
+  <li>31</li>
+</ul>
+</div>
+	</section>
 	<div th:replace="fragments/footer.html :: page-footer"></div>
 </body>
 </html>

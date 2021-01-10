@@ -1,17 +1,22 @@
 :root { 
 	--navbar-text-color: #263343;
 	--navbar-font-size: 20px;
-	--navbar-bgcolor:#44CCCE;
+	--navbar-bgcolor:#7986cb;
 	--base-space: 8px 12px; 
 	--item-space: 20px;
 	--logo-color: #f0f4f5;
 	
 }
 
+ul {list-style-type: none;}
+
 body {
 	margin: 0;
-	font-family: 'Source Sans Pro';
+	font-family: 'Roboto Slab', serif;
 	background-color: #f0f4f5;
+	height:100vh;
+	
+	
 }
 
 a {
@@ -23,7 +28,7 @@ a {
 .header {
   padding: 60px;
   text-align: center;
-  background: #1abc9c;
+  background: #49599a;
   color: white;
 }
 
@@ -70,12 +75,33 @@ a {
 }
 
 /********* index. html *******************/
-.overview, 
-.page-section {
+.main_visual{
+	position: relative;
+	background-color: #f0f4f5;
+	color: #263343;
+	}
+	
+.main_content{
+	position: relative;
+	z-index: 1;
+	height:100%;
+	}
+	
+.mbox_01 {
+	float:left;
+	width: 70%;
 	background-color: #f0f4f5;
 	color: #263343;
 }
+.mbox_02{
+	float:left;
+	width: 20%;
+	
+}
 
+.calendarBox{
+background-color: white;
+}
 .slide_wrapper{
 	position: relative;
 	width: 1400px;
@@ -89,51 +115,43 @@ a {
 	transition: left 0.5s ease-out;
 	padding:0;
 	margin:0;
+	list-style: none;
 }
 
 .slides li:not(:last-child){
 	float:left;
 	margin-right:30px;
-	list-style: none;
 }
 
 .controls{
-	text-align: center;
 	margin-top: 50px;
+	cursor: pointer;
+	font-weight: bold;
+	font-size: 25px;
+	transition: 0.6s ease;
+	color: #fff;
+	border-radius: 0 3px 3px 0;
+  	user-select: none;
 }
 
 .prev{
-	cursor: pointer;
 	position: absolute;
-	left: 4%;
-	top: 93%;
-	font-weight: bold;
-	font-size: 18px;
-	transition: 0.6s ease;
-	color: #fff;
+	left: 2em;
+	bottom: 4em;
 	padding: 13px;
-	border-radius: 0 3px 3px 0;
-  	user-select: none;
 }
 
 .next{
-	cursor: pointer;
 	position: absolute;
-	right: 4%;
-	top: 93%;
-	font-weight: bold;
-	font-size: 18px;
-	transition: 0.6s ease;
-	color: #fff;
-	padding:13px;
-	border-radius: 0 3px 3px 0;
-  	user-select: none;
+	right: 2em;
+	bottom: 4em;
+	padding: 13px;
 }
 .prev:hover, .next:hover {
   background-color: rgba(0,0,0,0.8);
 }
-.overview h2,
-.page-section h2{
+
+h2{
 	display:flex;
 	justify-content: space-between;
 	margin-top:2em;
@@ -142,26 +160,35 @@ a {
 }
 
 
-.main{
+.main_books{
 	display: flex;
-  	flex-wrap: no-wrap; 
-  	flex-direction: row;
+   	flex-direction: row;
   	justify-content: flex-start;
-    margin:0;
-    width:100%;
-    padding-left:  var(--item-space);
+  	margin:0 auto;
+    padding-left: 3em;
+    text-align: center;
 }
 
 
-.main li {
+.main_books li {
 	list-style: none;
 	background-color: #fff;
+	padding: 1em;
+	
+	
 }
 
-.main img {
+.main_books img {
 	width: 50%;
+	margin-left:2em;
+	
 }
 
+.calendarBox{
+	width:200px;
+	hight:100px;
+	background-color:white;
+}
 /********* footer. html *******************/
 .page-footer {
 	text-align:right;
@@ -189,9 +216,9 @@ a {
 		text-align: center;
 	}
 	.navbar_icons {
-		display: none; justify-content : center;
-		width: 100%;
+		display: none; 
 		justify-content: center;
+		width: 100%;
 	}
 	.navbar_toggleBtn {
 		display: block;
@@ -199,6 +226,84 @@ a {
 	.navbar_menu.active, .navbar_icons.active {
 		display: flex;
 	}
+}
+
+.month {
+  padding: 70px 25px;
+  width: 100%;
+  background: #1abc9c;
+  text-align: center;
+}
+
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.month  {
+  float: left;
+  padding-top: 10px;
+}
+
+.month  {
+  float: right;
+  padding-top: 10px;
+}
+
+.weekdays {
+  margin: 0;
+  padding: 10px 0;
+  background-color: #ddd;
+}
+
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  color: #666;
+  text-align: center;
+}
+
+.days {
+  padding: 10px 0;
+  background: #eee;
+  margin: 0;
+}
+
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  text-align: center;
+  margin-bottom: 5px;
+  font-size:12px;
+  color: #777;
+}
+
+.days li .active {
+  padding: 5px;
+  background: #1abc9c;
+  color: white !important
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+  .weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+  .weekdays li, .days li {width: 12.5%;}
+  .days li .active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+  .weekdays li, .days li {width: 12.2%;}
 }
 }
 
