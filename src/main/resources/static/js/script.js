@@ -44,3 +44,10 @@ function verifyReview(){
 	}
 	return true;
 }
+
+const reviewBtn = document.querySelector('.btn_02');
+const reviews = document.querySelector('.reviews');
+
+reviewBtn.addEventListener('click', () => {
+		reviews.classList.toggle('active');
+});

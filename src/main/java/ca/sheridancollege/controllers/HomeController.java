@@ -97,6 +97,11 @@ public class HomeController {
 		model.addAttribute("id", book.getId());
 		model.addAttribute("title", book.getTitle());
 		model.addAttribute("author", book.getAuthor());
+		model.addAttribute("image", book.getImage());
+		model.addAttribute("description",book.getDescription());
+		model.addAttribute("year",book.getYear());
+		model.addAttribute("types",book.getTypes());
+		model.addAttribute("pages",book.getPages());
 		return "view-book";
 	}
 	

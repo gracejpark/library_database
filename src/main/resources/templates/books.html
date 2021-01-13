@@ -18,6 +18,8 @@
 		<tr th:each="book : ${bookList}">
 			<td th:text=${book.title}>Title</td>
 			<td th:text=${book.author}>Author</td>
+			<td th:text=${book.image}>Author</td>
+			<td><img src="#" th:src="@{${book.image}}" alt="book1" /></td>
 			<td><a href="#" th:href="@{/viewBook/} + ${book.id}">View</a></td>
 		</tr>
 	</table>

@@ -8,7 +8,9 @@
 	
 }
 
-ul {list-style-type: none;}
+.slides ul,
+.main_books ul
+ {list-style-type: none;}
 
 body {
 	margin: 0;
@@ -104,13 +106,14 @@ background-color: white;
 }
 .slide_wrapper{
 	position: relative;
-	width: 1400px;
-	height: 300px;
+	width: 100%;
+	height: 600px;
 	margin: 0 auto;
-	overflow: hidden;
+	overflow:hidden;
 }
 .slides{
 	position:absolute;
+	max-height:100%;
 	left:0; top:0;
 	transition: left 0.5s ease-out;
 	padding:0;
@@ -120,31 +123,49 @@ background-color: white;
 
 .slides li:not(:last-child){
 	float:left;
-	margin-right:30px;
+	margin-right:0px;
+}
+
+.dot {
+  position: relative;
+  bottom: 1.5em;
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.dot:hover {
+  background-color: #717171;
 }
 
 .controls{
 	margin-top: 50px;
 	cursor: pointer;
 	font-weight: bold;
-	font-size: 25px;
+	font-size: 2em;
 	transition: 0.6s ease;
 	color: #fff;
 	border-radius: 0 3px 3px 0;
+	bottom: 6em;
   	user-select: none;
 }
 
 .prev{
 	position: absolute;
-	left: 2em;
-	bottom: 4em;
+	left: 1em;
+	bottom: 6em;
 	padding: 13px;
 }
 
 .next{
 	position: absolute;
-	right: 2em;
-	bottom: 4em;
+	right: 1em;
+	bottom: 6em;
 	padding: 13px;
 }
 .prev:hover, .next:hover {

@@ -1,20 +1,42 @@
 <!DOCTYPE html>
-<html  lang="en" xmlns:th="https://www.thymeleaf.org" 
+<html lang="en" xmlns:th="https://www.thymeleaf.org" 
 xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head>
+<head th:replace="fragments/header.html :: html-head"></head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Welcome to Our library!</title>
+<link href="../../static/css/detail.css" th:href="@{/css/detail.css}"
+	rel="stylesheet">
+<script src="../../static/js/script.js" th:src="@{/js/script.js}" defer></script>
 </head>
 <body>
-	<h1 th:text="|Reviews for ${title} by ${author}|">View reviews</h1>
-	<div th:if="${reviews.empty}">
-		<h2>No reviews yet. Be the first to review</h2>
+<header th:insert="fragments/header.html :: page-header"></header>
+<div class="row">
+	<div class="aside">
+		<img class="aside_image" src="#" th:src="@{${image}}" alt="book1" />
 	</div>
-	
-	<div th:unless="${reviews.empty}">
-		<ul>
-			<li th:each="review : ${reviews}" th:text=${review.text}>reviews</li>
+	<div class="contents">
+		<ul class="summary">
+		<li id="title" th:text="${title}"></li>
+		<li th:text="|Author ${author}|"></li>
+		<li th:text="|${year}, ${types}, ${pages} ;|"></li>
+		<li th:text="${description}"></li>
 		</ul>
+	<div class="button_container">	
+		<button class="btn_01">Borrow</button>	
+		<button class="btn_02">View reviews</button>
+	</div>
+	<div class="reviews">
+		<div th:if="${reviews.empty}">
+			<h2>No reviews yet. Be the first to review</h2>
+		</div>
+		<div th:unless="${reviews.empty}">
+			<ul>
+				<li th:each="review : ${reviews}" th:text=${review.text}>reviews</li>
+			</ul>
+		</div>
+	</div>
+	</div>
 	</div>
 	<div sec:authorize="!isAuthenticated()">
 		<p>Want to leave a review?<a href="/login">Login here</a>.</p>
