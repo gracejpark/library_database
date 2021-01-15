@@ -1,7 +1,8 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org"
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head th:replace="fragments/header.html :: html-head"></head>
+<head th:replace="fragments/header.html :: html-head">
+<link href="../../static/css/detail.css" th:href="@{/css/bookList.css}"rel="stylesheet"></head>
 <body>
 	<header th:insert="fragments/header.html :: page-header"></header>
 
@@ -13,12 +14,12 @@
 		<tr>
 			<th>Title</th>
 			<th>Author</th>
+			<th>Image</th>
 			<th>Reviews</th>
 		</tr>
 		<tr th:each="book : ${bookList}">
 			<td th:text=${book.title}>Title</td>
 			<td th:text=${book.author}>Author</td>
-			<td th:text=${book.image}>Author</td>
 			<td><img src="#" th:src="@{${book.image}}" alt="book1" /></td>
 			<td><a href="#" th:href="@{/viewBook/} + ${book.id}">View</a></td>
 		</tr>
