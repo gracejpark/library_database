@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org"
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-<head th:replace="fragments/header.html :: html-head">
+<head th:replace="fragments/header.html :: html-head"></head>
 <link href="../../static/css/detail.css" th:href="@{/css/bookList.css}"rel="stylesheet"></head>
 <body>
 	<header th:insert="fragments/header.html :: page-header"></header>
 
-<section class="page-section">
-	<div th:if="${message}" class="error">
+<section class="contents">
+<div class="visual">
+<h3>All Books</h3>
+<form onsubmit="event.preventDefault();" role="search">
+  <label for="search">Search for stuff</label>
+  <input id="search" type="search" placeholder="Search..." autofocus required />
+  <button type="submit">Go</button>    
+</form>
+	<!-- <div th:if="${message}" class="error">
 		<h1 th:text="${message}">Message</h1>
+	</div> -->
+	<div class="display_box">
+	<ul class="book" th:each="book : ${bookList}">
+		<li class="thumbnails"><a href="#" th:href="@{/viewBook/} + ${book.id}"><img src="#" th:src="@{${book.image}}" alt="book1" /></a></li>
+		<li id="title"><a href="#" th:href="@{/viewBook/} + ${book.id}"><span th:text=${book.title} ></span></a></li>
+		<li>By <span th:text=${book.author}></span></li>
+		<li>Book - 2012</li>
+		<li>Holds 1 on 2 copies</li>
+	</ul>
 	</div>
-	<table border="1">
-		<tr>
-			<th>Title</th>
-			<th>Author</th>
-			<th>Image</th>
-			<th>Reviews</th>
-		</tr>
-		<tr th:each="book : ${bookList}">
-			<td th:text=${book.title}>Title</td>
-			<td th:text=${book.author}>Author</td>
-			<td><img src="#" th:src="@{${book.image}}" alt="book1" /></td>
-			<td><a href="#" th:href="@{/viewBook/} + ${book.id}">View</a></td>
-		</tr>
-	</table>
+</div>
 	<br>
-	<div sec:authorize="!isAuthenticated()">
+	<!-- <div sec:authorize="!isAuthenticated()">
 		Log In <a th:href="@{/login}">here</a>.
-	</div>
+	</div> -->
 	
 	<div sec:authorize="hasRole('ROLE_MANAGER')">
 		<a href="#" th:href="@{/admin/new-book}">Add an Book</a>

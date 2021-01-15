@@ -79,31 +79,31 @@ a {
 /********* index. html *******************/
 .main_visual{
 	position: relative;
-	background-color: #f0f4f5;
-	color: #263343;
+/* 	background-color: #f0f4f5;
+	color: #263343; */
 	}
 	
 .main_content{
-	position: relative;
-	z-index: 1;
-	height:100%;
+	display: flex;
+    flex-direction: row;
 	}
 	
 .mbox_01 {
-	float:left;
-	width: 70%;
-	background-color: #f0f4f5;
-	color: #263343;
+	display: flex;
+    flex-direction: column;
+   
+    background-color: #f0f4f5;
+    color: #263343;
+   padding-left: 5em;
+    flex-basis: 55%;
 }
 .mbox_02{
-	float:left;
-	width: 20%;
-	
+    flex-basis: 45%;
+   border: solid;
+    border-color: yellowgreen;
+    padding-right: 5em;
 }
 
-.calendarBox{
-background-color: white;
-}
 .slide_wrapper{
 	position: relative;
 	width: 100%;
@@ -172,12 +172,12 @@ background-color: white;
   background-color: rgba(0,0,0,0.8);
 }
 
-h2{
-	display:flex;
+.mbox_01 h2{
+/* 	display:flex;
 	justify-content: space-between;
 	margin-top:2em;
 	margin-bottom:0.8em;
-    padding-left:  var(--item-space);
+    padding-left:  var(--item-space); */
 }
 
 
@@ -185,31 +185,25 @@ h2{
 	display: flex;
    	flex-direction: row;
   	justify-content: flex-start;
-  	margin:0 auto;
-    padding-left: 3em;
+  	padding-left: 0;
+  /* 	margin:0 auto; 
+    padding-left: 3em; */
     text-align: center;
+    width:100%;
 }
 
 
 .main_books li {
 	list-style: none;
-	background-color: #fff;
-	padding: 1em;
-	
-	
+	padding: 1em;	
 }
 
 .main_books img {
 	width: 50%;
-	margin-left:2em;
-	
+	margin: 0;	
 }
 
-.calendarBox{
-	width:200px;
-	hight:100px;
-	background-color:white;
-}
+
 /********* footer. html *******************/
 .page-footer {
 	text-align:right;
@@ -219,7 +213,6 @@ h2{
 }
 
 @media screen and (max-width: 770px) {
-
 	.navbar {
 		flex-direction: column;
 		align-items: flex-start;
@@ -249,74 +242,6 @@ h2{
 	}
 }
 
-.month {
-  padding: 70px 25px;
-  width: 100%;
-  background: #1abc9c;
-  text-align: center;
-}
-
-.month ul {
-  margin: 0;
-  padding: 0;
-}
-
-.month ul li {
-  color: white;
-  font-size: 20px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
-
-.month  {
-  float: left;
-  padding-top: 10px;
-}
-
-.month  {
-  float: right;
-  padding-top: 10px;
-}
-
-.weekdays {
-  margin: 0;
-  padding: 10px 0;
-  background-color: #ddd;
-}
-
-.weekdays li {
-  display: inline-block;
-  width: 13.6%;
-  color: #666;
-  text-align: center;
-}
-
-.days {
-  padding: 10px 0;
-  background: #eee;
-  margin: 0;
-}
-
-.days li {
-  list-style-type: none;
-  display: inline-block;
-  width: 13.6%;
-  text-align: center;
-  margin-bottom: 5px;
-  font-size:12px;
-  color: #777;
-}
-
-.days li .active {
-  padding: 5px;
-  background: #1abc9c;
-  color: white !important
-}
-
-/* Add media queries for smaller screens */
-@media screen and (max-width:720px) {
-  .weekdays li, .days li {width: 13.1%;}
-}
 
 @media screen and (max-width: 420px) {
   .weekdays li, .days li {width: 12.5%;}

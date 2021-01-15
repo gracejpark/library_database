@@ -49,7 +49,7 @@
 
 .button_container{
 	display: block;
-	padding: 3em;
+	padding: 3em 3em 0 3em;
 	}
 
 .btn_01, .btn_02{
@@ -62,6 +62,7 @@
 	padding: 0.5em 1em;
 	text-align: center;
 	background-color: #49599A;
+	cursor: pointer;
 }
 
 .reviews{
@@ -69,7 +70,7 @@
 }
 .reviews.active{
 	display: flex;
-	padding: 2em;
+	padding-left: 2em;
 }
 #title{
 	font-size: 30px;
