@@ -109,12 +109,17 @@ private NamedParameterJdbcTemplate jdbc;
 	 * @param author the author of the new book to add
 	 * @return the number of rows affected; 1 - successful, 0 - not.
 	 */
-	public int addBook(String title, String author) {
+	public int addBook(String title, String author, String image, String description, int year, String types, int pages) {
 		MapSqlParameterSource namedParameters = new MapSqlParameterSource();
-		String query = "INSERT INTO books (title, author) VALUES (:title, :author)";
+		String query = "INSERT INTO books (title, author, image, description, year, types, pages) VALUES (:title, :author, :image, :description, :year, :types, :pages)";
 		
 		namedParameters.addValue("title", title)
-		.addValue("author", author);
+		.addValue("author", author)
+		.addValue("image", image)
+		.addValue("description", description)
+		.addValue("year", year)
+		.addValue("types", types)
+		.addValue("pages", pages);
 		
 		int returnValue = jdbc.update(query, namedParameters);
 		

@@ -10,10 +10,8 @@
 }
 
 .primary_aside{
-	width: 20%;
-	
+	width: 20%;	
 	padding: 15px;
-	
 }
 
 .secondary_aside{
@@ -37,7 +35,6 @@
 }
 
 .summary{
-	list-style: none;
 	padding: 0 3em 0 3em;
 	margin: 0;
 }
@@ -69,7 +66,7 @@
 	display:none;
 }
 .reviews.active{
-	display: flex;
+	display: block;
 	padding-left: 2em;
 }
 #title{

@@ -4,55 +4,82 @@
 <head th:replace="fragments/header.html :: html-head"></head>
 <body>
 	<header th:insert="fragments/header.html :: page-header"></header>
+	
 	<section class="main_visual">
-	<div sec:authorize="isAuthenticated()">
-		<form action="#" th:action="@{/logout}" method="post">
-		<label for="male">Hi <span sec:authentication="principal.username"> Welcome Back! </span></label>
-		<input type="submit" value="Logout">	
-		</form>
-	</div>
-	<div class="slide_wrapper">
-		<ul class="slides">
-			<li><img src="../static/img/library1.jpg" th:src="@{/img/library1.jpg}" alt="lib1" /></li>
-			<li><img src="../static/img/library2.jpg" th:src="@{/img/library2.jpg}" alt="lib2" /></li>
-			<li><img src="../static/img/library3.jpg" th:src="@{/img/library3.jpg}" alt="lib3" /></li>
-			<li><img src="../static/img/library4.jpg" th:src="@{/img/library4.jpg}" alt="lib4" /></li>
-			<li><img src="../static/img/library5.jpg" th:src="@{/img/library5.jpg}" alt="lib5" /></li>
-		</ul>
-		<div>
-	</div>
-		<p class="controls">
-		<span class="prev">&#10094;</span>
-		<span class="next">&#10095;</span></p>
-		<br>
-	</div>
-	<div style="text-align:center">
-		<span class="dot" onclick="moveSlide(0)"></span>
-  		<span class="dot" onclick="moveSlide(1)"></span> 
-  		<span class="dot" onclick="moveSlide(2)"></span> 
-  		<span class="dot" onclick="moveSlide(3)"></span>
-  		<span class="dot" onclick="moveSlide(4)"></span>
- 	 </div>	
+		<div class="slide_wrapper">
+			<ul class="slides">
+				<li><img src="../static/img/library1.jpg"
+					th:src="@{/img/library1.jpg}" alt="lib1" /></li>
+				<li><img src="../static/img/library2.jpg"
+					th:src="@{/img/library2.jpg}" alt="lib2" /></li>
+				<li><img src="../static/img/library3.jpg"
+					th:src="@{/img/library3.jpg}" alt="lib3" /></li>
+				<li><img src="../static/img/library4.jpg"
+					th:src="@{/img/library4.jpg}" alt="lib4" /></li>
+				<li><img src="../static/img/library5.jpg"
+					th:src="@{/img/library5.jpg}" alt="lib5" /></li>
+			</ul>
+			<div></div>
+			<p class="controls">
+				<span class="prev">&#10094;</span> <span class="next">&#10095;</span>
+			</p>
+			<br>
+		</div>
+		<div style="text-align: center">
+			<span class="dot" onclick="moveSlide(0)"></span>
+			 <span class="dot" onclick="moveSlide(1)"></span> 
+			 <span class="dot"	onclick="moveSlide(2)"></span>
+			  <span class="dot"	onclick="moveSlide(3)"></span> 
+			  <span class="dot" onclick="moveSlide(4)"></span>
+		</div>
 	</section>
-	
 	<section class="main_content">
-	<div class="mbox_01">
-		<h2>Most Searched Books</h2>
-		<ul class="main_books">
-			<li><a href="#" th:href="@{/viewBook/} + 1">
-			<img src="../static/img/book1.jpg" th:src="@{/img/book1.jpg}" alt="book1" /></a>
-			<h5>The 7 Habits of Highly Effective People</h5></li>
-			<li><a href="#" th:href="@{/viewBook/} + 2">
-			<img src="../static/img/book2.jpg" th:src="@{/img/book2.jpg}" alt="book1" /></a>
-			<h5>The Prince</h5></li>
-			<li><a href="#" th:href="@{/books}">
-					<i class="fas fa-plus-square"></i></a>
-			</li>
-		</ul>
-	</div>
-	<div class="mbox_02">
-	
-	</div>
+		<div class="mbox_01">
+			<h2>Most Searched Books</h2>
+			<ul class="main_books">
+				<li><a href="#" th:href="@{/viewBook/} + 1"> <img
+						src="../static/img/book1.jpg" th:src="@{/img/book1.jpg}"
+						alt="book1" /></a>
+					<h5>The 7 Habits of Highly Effective People</h5></li>
+				<li><a href="#" th:href="@{/viewBook/} + 2"> <img
+						src="../static/img/book2.jpg" th:src="@{/img/book2.jpg}"
+						alt="book1" /></a>
+					<h5>The Prince</h5></li>
+				<li><a href="#" th:href="@{/books}"> <i
+						class="fas fa-plus-square"></i></a></li>
+			</ul>
+		</div>
+		<div class="mbox_02">
+			<div class="my-calendar clearfix">
+				<div class="clicked-date">
+					<div class="cal-day"></div>
+					<div class="cal-date"></div>
+				</div>
+				<div class="calendar-box">
+					<div class="ctr-box clearfix">
+						<button type="button" title="prev" class="btn-cal cal-prev">
+						</button>
+						<span class="cal-month"></span> <span class="cal-year"></span>
+						<button type="button" title="next" class="btn-cal cal-next">
+						</button>
+					</div>
+					<table class="cal-table">
+						<thead>
+							<tr>
+								<th>S</th>
+								<th>M</th>
+								<th>T</th>
+								<th>W</th>
+								<th>T</th>
+								<th>F</th>
+								<th>S</th>
+							</tr>
+						</thead>
+						<tbody class="cal-body"></tbody>
+					</table>
+				</div>
+			</div>
+		</div>
 	</section>
 	<div th:replace="fragments/footer.html :: page-footer"></div>
 </body>

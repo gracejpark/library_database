@@ -53,16 +53,21 @@ public class HomeController {
 	 */
 	@GetMapping("/")
 		public String goHome(Model model) {
-			List<Book> books = database.getBook();
-			model.addAttribute("bookList", books);
+			/*
+			 * List<Book> books = database.getBook(); model.addAttribute("bookList", books);
+			 */
 		return "index";
 	}
 	
 	@RequestMapping("/books")
 	public String books(Model model) {
+		try {
 		List<Book> books = database.getBook();
 		model.addAttribute("bookList", books);
-		return "books";
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}return "books";
 	}
 	
 	/**
@@ -133,9 +138,17 @@ public class HomeController {
 	 * @return "redirect:/" 
 	 */
 	@PostMapping("/admin/add-book")
-	public String addBook(@RequestParam String title, @RequestParam String author) {
-		int book = database.addBook(title, author);
-		return "redirect:/";
+	public String addBook(@RequestParam String title, @RequestParam String author, @RequestParam String image,
+							@RequestParam String description, @RequestParam int year, @RequestParam String types,
+							@RequestParam int pages ) {
+		try{
+			int book = database.addBook(title, author, image, description, year, types, pages);
+		}
+		catch(Exception e)
+		{
+			System.out.println("addbook:"+e.getMessage());
+		}
+		return "redirect:/books";
 	}
 	
 	/**

@@ -28,7 +28,7 @@
 				</div>
 				<div th:unless="${reviews.empty}">
 					<ul>
-						<li th:each="review : ${reviews}" th:text=${review.text}>reviews</li>
+						<li th:each="review : ${reviews}" th:text="|✍   ${review.text}|">reviews</li>
 					</ul>
 				</div>
 			</div>

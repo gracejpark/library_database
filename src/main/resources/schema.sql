@@ -3,11 +3,11 @@ create table books (
   id       LONG NOT NULL Primary Key AUTO_INCREMENT,
   title    VARCHAR(128) NOT NULL,
   author   VARCHAR(128) NOT NULL,
-  image	   VARCHAR(238) NOT NULL,
-  description VARCHAR(1024) NOT NULL,
-  year		INT(5) NOT NULL,
-  types		VARCHAR(128) NOT NULL,
-  pages 	INT(5) NOT NULL
+  image	   VARCHAR(238) NULL,
+  description VARCHAR(1024)  NULL,
+  year		 INT (238)  NULL,
+  types		VARCHAR(128)  NULL,
+  pages 	INT(128)  NULL
 );
 
 create table reviews (

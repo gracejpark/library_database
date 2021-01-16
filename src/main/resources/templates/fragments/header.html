@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head th:fragment="html-head">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -29,10 +30,22 @@
 				<li><a href="#">Library Services</a></li>
 				<li><a href="#">Contact Us</a></li>
 			</ul>
+			<div sec:authorize="!isAuthenticated()">
 			<ul class="navbar_icons">
 				<li><a href="#" th:href="@{/login}"><i class="fas fa-sign-in-alt"></i></a></li>
 				<li><a href="#" th:href="@{/register}"><i class="fas fa-user-circle"></i></a></li>
 			</ul>
+			</div>
+			<div sec:authorize="isAuthenticated()">
+			<ul class="navbar_icons">
+				<li>
+				<form action="#" th:action="@{/logout}" method="post">Hi <span sec:authentication="principal.username">! </span>
+				<button id="btn" value="Logout"><i class="fas fa-sign-out-alt"></i></button>
+				</form>
+				</li>
+				
+			</ul>
+			</div>
 			
 			<a href="#" class="navbar_toggleBtn"><i class="fas fa-bars"></i></a>
 		</nav>

@@ -27,11 +27,9 @@ public class TestDatabase {
 		da.addReview((long) 2, "This is a great book");
 	}
 	
-	@Test
-	public void testAddBook() {
-		int origSize = da.getBook().size();
-		da.addBook("Gone with the Wind", "Margaret Mirchell");
-		int newSize = da.getBook().size();
-		assertThat(newSize).isEqualTo(origSize + 1);
-	}
+	/*
+	 * @Test public void testAddBook() { int origSize = da.getBook().size();
+	 * da.addBook("Gone with the Wind", "Margaret Mirchell"); int newSize =
+	 * da.getBook().size(); assertThat(newSize).isEqualTo(origSize + 1); }
+	 */
 }
